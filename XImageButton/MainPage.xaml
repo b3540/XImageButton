@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XImageButton"
+             x:Class="XImageButton.MainPage"
+             x:Name="Page">
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel View="{x:Reference Page}"/>
+    </ContentPage.BindingContext>
+    <Grid VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="74" WidthRequest="74">
+        <Image Source="{local:ImageSource XImageButton.Resources.icon.png}"/>
+        <Button Text="" Margin="-5" Command="{Binding ClickedCommand}">
+            <Button.Opacity>
+                <OnPlatform x:TypeArguments="x:Double"
+                            Android="0"
+                            iOS="1">
+                </OnPlatform>
+            </Button.Opacity>
+        </Button>
+    </Grid>
+</ContentPage>
